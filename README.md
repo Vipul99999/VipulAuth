@@ -32,6 +32,7 @@ A modern authentication system built with **React** for the frontend and a backe
 ---
 ## Project Structure
 ```bash
+# client
 src/
 ├─ assets/ # Images and icons
 ├─ components/ # Navbar, Dashboard, ProtectedRoute, etc.
@@ -41,6 +42,31 @@ src/
 └─ main.jsx # Entry point
 
 ```
+
+```bash 
+server/
+├─ config/          # Configuration files (DB connection, environment config) 
+|  |-- emailTemplate.js
+|  |-- mongodb.js
+|  |-- nodemailer.js               
+├─ controllers/           # Request handlers for routes
+│  ├─ authController.js
+│  └─ userController.js
+├─ middleware/            # Middleware (auth check, error handling)
+│  ├─ userAuth.js
+│  
+├─ models/                # Mongoose or Sequelize models
+│  ├─ userModel.js
+│  
+├─ routes/                # API routes
+│  ├─ authRoutes.js
+│  └─ userRoutes.js
+├─ .env                   # Environment variables
+├─ server.js              # Main entry point
+├─ package.json
+└─ README.md
+
+
 ---
 
 ## Getting Started
