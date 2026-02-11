@@ -3,7 +3,7 @@
 
 A modern authentication system built with **React** for the frontend and a backend API for authentication and user management. Features include login, email verification, password reset, and protected routes.
 
-**Demo:** [Live Demo Link](#)
+**Demo:** [Live Demo Link](https://vipul-auth.vercel.app/)
 
 ---
 ## 🚀 Live Demo
