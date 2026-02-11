@@ -32,8 +32,9 @@ A modern authentication system built with **React** for the frontend and a backe
 ---
 ## Project Structure
 ```bash
-# client
+Client
 src/
+├─ api/ # api with axios 
 ├─ assets/ # Images and icons
 ├─ components/ # Navbar, Dashboard, ProtectedRoute, etc.
 ├─ context/ # AppContext and provider
