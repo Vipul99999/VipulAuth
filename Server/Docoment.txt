@@ -1,0 +1,10 @@
+  // undertand each topic 
+  npm install express cors doenv nodemon jsonwebtoken mongoose bcryptjs nodemailer cookie-parser
+
+  // mogodb connection uri
+  mongodb+srv://Vipultechstack:<db_password>@cluster0.sksp0p1.mongodb.net/
+
+  | Port | Protocol Type | `secure` value |
+| ---- | ------------- | -------------- |
+| 587  | STARTTLS      | `false`        |
+| 465  | SSL/TLS       | `true`         |
