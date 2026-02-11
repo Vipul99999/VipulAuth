@@ -11,24 +11,27 @@ const port = process.env.PORT || 8000;
 
 connectDB();
 
-const allowedOrigins = [ process.env.FRONTEND_URL,
-  "http://localhost:5173"
-];
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+
+    // Allow localhost
+    if (origin.includes("localhost")) {
+      return callback(null, true);
+    }
+
+    // Allow any vercel preview or production URL
+    if (origin.includes("vercel.app")) {
+      return callback(null, true);
+    }
+
+    callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true
+}));
+
 
 // Test route
 app.get("/", (req, res) => {
