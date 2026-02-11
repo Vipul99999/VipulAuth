@@ -30,8 +30,6 @@ app.use(
   })
 );
 
-// VERY IMPORTANT — allow preflight
-app.options("*", cors());
 // Test route
 app.get("/", (req, res) => {
   res.send("API Working fine");
