@@ -2,7 +2,7 @@ import { useState, useContext } from 'react'
 import { assets } from '../assets/assets';
 import { useNavigate } from 'react-router-dom';
 import { AppContent } from '../context/AppContext'
-import {api} from '../api/axios';
+import api from '../api/axios';
 import { toast } from 'react-toastify';
 
 const Login = () => {
