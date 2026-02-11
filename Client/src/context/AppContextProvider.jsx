@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import { AppContent } from "./AppContext";
-
 import api from "../api/axios";
 
 export const AppContextProvider = ({ children }) => {

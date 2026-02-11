@@ -1,13 +1,11 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import  {  useState, useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
-import { AppContent } from "../context/AppContext";
-import axios from "axios";
+import api from "../api/axios";
 import { toast } from "react-toastify";
 
 const ResetPassword = () => {
-  const { backendUrl } = useContext(AppContent);
-  axios.defaults.withCredentials = true;
+  
 
   const navigate = useNavigate();
 
@@ -65,8 +63,8 @@ const ResetPassword = () => {
     }
 
     try {
-      const { data } = await axios.post(
-        backendUrl + "/api/auth/send-reset-otp",
+      const { data } = await api.post(
+        "/api/auth/send-reset-otp",
         { email }
       );
       if (data.success) {
@@ -94,8 +92,8 @@ const ResetPassword = () => {
   const onSubmitNewPassword = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        backendUrl + "/api/auth/reset-password",
+      const { data } = await api.post(
+        "/api/auth/reset-password",
         {
           email,
           otp,

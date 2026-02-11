@@ -7,6 +7,8 @@ const api = axios.create({
     "Content-Type": "application/json",
   },
 });
+console.log("ENV:", import.meta.env);
+console.log("BACKEND:", import.meta.env.VITE_BACKEND_URL);
 
 // Global 401 handler
 api.interceptors.response.use(

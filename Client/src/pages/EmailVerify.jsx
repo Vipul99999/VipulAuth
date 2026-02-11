@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import  { useContext, useEffect, useRef, useState } from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AppContent } from "../context/AppContext";
-import axios from "axios";
+import api from "../api/axios";
 
 const EmailVerify = () => {
-  axios.defaults.withCredentials = true;
-
-  const { backendUrl, isLoggedIn, userData, getUserData, loading } = useContext(AppContent);
+  const { isLoggedIn, userData, getUserData, loading } = useContext(AppContent);
   const navigate = useNavigate();
   const inputRefs = useRef([]);
   const [submitting, setSubmitting] = useState(false);
@@ -55,7 +53,7 @@ const EmailVerify = () => {
 
     try {
       setSubmitting(true);
-      const { data } = await axios.post(`${backendUrl}/api/auth/verify-account`, { otp });
+      const { data } = await api.post(`/api/auth/verify-account`, { otp });
       if (data.success) {
         toast.success(data.message);
         await getUserData();

@@ -3,20 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AppContent } from "../context/AppContext";
 import { toast } from "react-toastify";
-import axios from "axios";
+import api from "../api/axios";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { userData, backendUrl, setUserData, setIsLoggedIn } =
+  const { userData, setUserData, setIsLoggedIn } =
     useContext(AppContent);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const sendVerificationOtp = async () => {
     try {
-      axios.defaults.withCredentials = true;
-      const { data } = await axios.post(
-        backendUrl + "/api/auth/send-verify-otp"
-      );
+      const { data } = await api.post("/api/auth/send-verify-otp");
       if (data.success) {
         navigate("/email-verify");
         toast.success(data.message);
@@ -30,8 +27,7 @@ const Navbar = () => {
 
   const logout = async () => {
     try {
-      axios.defaults.withCredentials = true;
-      const { data } = await axios.post(backendUrl + "/api/auth/logout");
+      const { data } = await api.post("/api/auth/logout");
       if (data.success) {
         setIsLoggedIn(false);
         setUserData(null);
@@ -48,8 +44,7 @@ const Navbar = () => {
   const deleteAccount = async () => {
     if (!window.confirm("Are you sure you want to delete your account? This action is irreversible.")) return;
     try {
-      axios.defaults.withCredentials = true;
-      const { data } = await axios.delete(`${backendUrl}/api/auth/delete-account`);
+      const { data } = await api.delete("/api/auth/delete-account");
       if (data.success) {
         setIsLoggedIn(false);
         setUserData(null);
