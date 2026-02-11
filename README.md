@@ -83,12 +83,22 @@ npm install
 ```
 ### 3. Set up environment variables
 ```bash
-VITE_BACKEND_URL=http://localhost:4000
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=yourgmail@gmail.com
+SMTP_PASS=your_gmail_app_password
+NODE_ENV=production
+JWT_SECRET=your_jwt_secret_key
+MONGODB_URI=your_mongodb_connection_string
+SENDER_EMAIL= your_sender_email@gmail.com
+EMAIL_PASSWORD=your_email_password
+ALLOWED_ORIGINS=http://localhost:5173, your deployed frontend URL (e.g., https://vipulauth-frontend.onrender.com)
+
 ```
 ### 4. Start the development server
 ```bash
 Frontend = npm run dev
-Backend = node server.js
+Backend = node start 
 ```
 
 
